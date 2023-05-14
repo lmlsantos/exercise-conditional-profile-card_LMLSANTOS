@@ -29,18 +29,90 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  alert("PLEASE FILL IN THE NULL FIELDS");
+
+  let first_name = "Your Name";
+  if (variables.name !== null) first_name = variables.name;
+
+  let last_Name = "Your Last Name";
+  if (variables.lastname !== null) last_Name = variables.lastname;
+
+  let position = "posittion-left";
+  if (variables.socialMediaPosition == "position-left") {
+    position = "position-left";
+  } else if (variables.socialMediaPosition == "position-right") {
+    position = "position-right";
+  }
+
+  let twitter_account = "";
+  variables.twitter !== null
+    ? (twitter_account = variables.twitter)
+    : (twitter_account = "https://twitter.com/4geeksacademy");
+
+  let github_account = "";
+  variables.github !== "alesanchezr"
+    ? (github_account = variables.github)
+    : (github_account = "https://github.com/4geeksacademy");
+
+  let linkedin_account = "";
+  variables.linkedin !== null
+    ? (linkedin_account = variables.linkedin)
+    : (linkedin_account = "https://linkedin.com/4geeksacademy");
+
+  let Instagram_account = "";
+  variables.instagram !== null
+    ? (Instagram_account = variables.instagram)
+    : (Instagram_account = "https://instagram.com/4geeksacademy");
+
+  let profession = "";
+  if (variables.role == null) {
+    profession = null;
+  } else if (variables.role == "Web Developer") {
+    profession = "Web Developer";
+  } else if (variables.role == "Floor Planner") {
+    profession = "Floor Planner";
+  } else if (variables.role == "Technical Writter") {
+    profession = "Technical Writter";
+  }
+
+  let pais = "";
+  if (variables.country == null) {
+    pais = null;
+  } else if (variables.country == "USA") {
+    pais = "USA";
+  } else if (variables.country == "Germany") {
+    pais = "Germany";
+  } else if (variables.country == "Canada") {
+    pais = "Canada";
+  } else if (variables.country == "Venezuela") {
+    pais = "Venezuela";
+  }
+
+  let cidade = "";
+  if (variables.city == null) {
+    cidade = null;
+  } else if (variables.city == "Miami") {
+    cidade = "Miami";
+  } else if (variables.city == "Munich") {
+    cidade = "Munich";
+  } else if (variables.city == "Toronto") {
+    cidade = "Toronto";
+  } else if (variables.city == "Caracas") {
+    cidade = "Caracas";
+  }
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${first_name} ${last_Name}</h1>
+          <h2>${profession}</h2>
+          <h3>${cidade}, ${pais}</h3>
+          <ul class="${position}">
+            <li><a href="${twitter_account}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="${github_account}" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="${linkedin_account}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${Instagram_account}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
