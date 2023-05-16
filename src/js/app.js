@@ -29,13 +29,19 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  alert("PLEASE FILL IN THE NULL FIELDS");
-
   let first_name = "Your Name";
-  if (variables.name !== null) first_name = variables.name;
+  if (variables.name !== null) {
+    first_name = variables.name;
+  } else if (variables.name == null) {
+    alert("PLEASE FILL IN THE NULL FIELDS");
+  }
 
   let last_Name = "Your Last Name";
-  if (variables.lastname !== null) last_Name = variables.lastname;
+  if (variables.lastname !== null) {
+    last_Name = variables.lastname;
+  } else if (variables.lastname == null) {
+    alert("PLEASE FILL IN THE NULL FIELDS");
+  }
 
   let position = "posittion-left";
   if (variables.socialMediaPosition == "position-left") {
@@ -78,6 +84,7 @@ function render(variables = {}) {
   let pais = "";
   if (variables.country == null) {
     pais = null;
+    alert("PLEASE FILL IN THE NULL FIELDS");
   } else if (variables.country == "USA") {
     pais = "USA";
   } else if (variables.country == "Germany") {
@@ -91,6 +98,7 @@ function render(variables = {}) {
   let cidade = "";
   if (variables.city == null) {
     cidade = null;
+    alert("PLEASE FILL IN THE NULL FIELDS");
   } else if (variables.city == "Miami") {
     cidade = "Miami";
   } else if (variables.city == "Munich") {
